@@ -1,0 +1,10 @@
+﻿Build started 17/02/2016 15:39:36.
+     1>Project "C:\Code\Edge detect\C++\Canny Edge Detection\Canny Edge Detection\Canny Edge Detection.vcxproj" on node 2 (rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "Debug\Canny Edge Detection.lastbuildstate".
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Platforms\Win32\Microsoft.Cpp.Win32.Targets(511,5): error MSB8008: Specified platform toolset (v140) is not installed or invalid. Please make sure that a supported PlatformToolset value is selected.
+     1>Done Building Project "C:\Code\Edge detect\C++\Canny Edge Detection\Canny Edge Detection\Canny Edge Detection.vcxproj" (rebuild target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.25
