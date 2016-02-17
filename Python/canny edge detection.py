@@ -9,6 +9,7 @@ from PIL import ImageFont
 import os
 import time
 import math
+import array
 
 # load source image
 img_src=image.open("bridge.jpg")
@@ -41,6 +42,9 @@ print ""
 # display current task
 print "Applying gaussian blur to image"
 
+# define gaussian blur weightings array
+weighting = [[2,4,5,4,2],[4,9,12,9,4],[5,12,15,12,5],[4,9,12,9,4],[2,4,5,4,2]]
+
 # now calculate gradient intensity of each pixel
 for x in range(2,width-2):
     for y in range(2,height-2):
@@ -50,28 +54,8 @@ for x in range(2,width-2):
         # +-2 of current position then apply gaussian filter weightings
         for dx in range(-2,2):
             for dy in range(-2,2):
-                pixelweight = 0
-                if (abs(dy) == 2):
-                    if (abs(dx) == 0):
-                        pixelweight = 5
-                    elif (abs(dx) == 1):
-                        pixelweight = 4
-                    elif (abs(dx) == 2):
-                        pixelweight = 2
-                elif (abs(dy) == 1):
-                    if (abs(dx) == 0):
-                        pixelweight = 12
-                    elif (abs(dx) == 1):
-                        pixelweight = 9
-                    elif (abs(dx) == 2):
-                        pixelweight = 4
-                elif (abs(dy) == 0):
-                    if (abs(dx) == 0):
-                        pixelweight = 15
-                    elif (abs(dx) == 1):
-                        pixelweight = 12
-                    elif (abs(dx) == 2):
-                        pixelweight = 5
+                # get weighting
+                pixelweight = weighting[dx+2][dy+2]
 
                 # apply weighting
                 blurpixel = blurpixel + pixels_src[x + dx, y + dy] * pixelweight
