@@ -173,7 +173,7 @@ int main()
 
 			if (grady < 0) tempr = -tempr;
 
-			graddir = (int)(tempr + 0.22) * 80;
+			graddir = (int)(abs(tempr) + 0.22) * 80;
 
 			// Store gradient direction
 			imggraddir[x][y] = graddir;
